@@ -1,5 +1,8 @@
 import _ from 'lodash';
 import '../scss/main.scss';
-import Task from './task.js';
+import TaskUtils from './task-utils';
 
-const test = new Task();
+
+const task = new TaskUtils();
+
+task.init();
