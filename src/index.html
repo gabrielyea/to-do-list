@@ -6,14 +6,20 @@
     <title>Wbpack Exercise</title>
 </head>
 <body>
+    <div class="top-area"></div>
     <section>
         <h2>Today's to do</h2>
         <input class="task-input" type="text">
         <ul class ="task-list">
             <template class="task-template">
-                <li><p class="task-description"></p></li>
+                <li class="task-element">
+                    <input type="checkbox">
+                    <p class="task-description"></p>
+                    <div class ="three-dots-container"><span class="three-dots"></span></div>
+                </li>
             </template>
         </ul>
     </section>
+    <div class="bottom-area"></div>
 </body>
 </html>

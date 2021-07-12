@@ -1,3 +1,11 @@
+@use '../utils/' as *;
+
 ul {
   list-style: none;
+
+  .task-element {
+    @include flexCenter(row);
+
+    justify-content: space-between;
+  }
 }
