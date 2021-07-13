@@ -13,7 +13,7 @@
 
 ## Live Demo
 You can see my page live here: 
-[Check it out!](https://gabrielyea.github.io/module1-capstone/)
+[Check it out!](https://gabrielyea.github.io/to-do-list/)
 
 
 <!--## Getting Started
