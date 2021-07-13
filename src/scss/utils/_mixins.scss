@@ -27,3 +27,14 @@
   background-repeat: no-repeat;
   margin-left: 10px;
 }
+
+@mixin styleFont($size: 1em, $weigth: normal, $style: normal) {
+  font-size: $size;
+  font-weight: $weigth;
+  font-style: $style;
+}
+
+@mixin setColors($color: grey, $backgroundColor: transparent) {
+  color: $color;
+  background-color: $backgroundColor;
+}

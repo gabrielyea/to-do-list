@@ -7,14 +7,17 @@
 </head>
 <body>
     <div class="top-area"></div>
-    <section>
+    <h1>minimalist</h1>
+    <section class="list-section">
         <h2>Today's to do</h2>
-        <input class="task-input" type="text">
+        <input class="task-input" type="text" placeholder="Add to your list...">
         <ul class ="task-list">
             <template class="task-template">
                 <li class="task-element">
-                    <input type="checkbox">
-                    <p class="task-description"></p>
+                    <div class="checkbox-description-container">
+                        <input type="checkbox">
+                        <p class="task-description"></p>
+                    </div>
                     <div class ="three-dots-container"><span class="three-dots"></span></div>
                 </li>
             </template>
