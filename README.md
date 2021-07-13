@@ -1,9 +1,12 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Title
+# Todo list app
 
 # Project Description
+> Simple app that manages a list of activities.
 
+# Screenshots
+![screenshot](./todoScreen.png)
 
 ## Built With
 - html
@@ -13,7 +16,7 @@
 
 ## Live Demo
 You can see my page live here: 
-[Check it out!](https://gabrielyea.github.io/module1-capstone/)
+[Check it out!](https://gabrielyea.github.io/to-do-list/)
 
 
 <!--## Getting Started

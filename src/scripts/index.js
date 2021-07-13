@@ -1,18 +1,17 @@
-import _ from 'lodash';
-import printMe from './print.js';
 import '../scss/main.scss';
+import taskList from './task-list.js';
+import TaskUtils from './task-utils.js';
+import UserInterface from './user-interface.js';
 
-function component() {
-  const element = document.createElement('div');
-  const btn = document.createElement('button');
+const task = new TaskUtils();
+const ux = new UserInterface();
+const setExampleTasks = () => {
+  taskList.addToList(task.createTaskElement({ description: 'Clean the house' }));
+  taskList.addToList(task.createTaskElement({ description: 'Walk the dog' }));
+  taskList.addToList(task.createTaskElement({ description: 'Make lunch' }));
+  task.appendElementsToList();
+};
 
-  // Lodash, currently included via a script, is required for this line to work
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  btn.innerHTML = 'Click me and check the console!';
-
-  btn.onclick = printMe;
-  element.appendChild(btn);
-  return element;
-}
-
-document.body.appendChild(component());
+task.init();
+ux.init();
+setExampleTasks();

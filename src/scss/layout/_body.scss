@@ -1,0 +1,9 @@
+@use '../utils/mixins'as *;
+
+body {
+  @include flexCenter;
+
+  justify-content: space-between;
+  height: 100vh;
+  background-color: #f6f6f6;
+}

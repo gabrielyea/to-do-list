@@ -1,0 +1,75 @@
+
+@use '../utils/' as *;
+
+h1 {
+  @include styleFont(2em, 400);
+
+  font-family: $main-font;
+  color: $main-font-color;
+  font-size: 3em;
+}
+
+.bottom-area {
+  background-color: $second-background-color;
+  width: 100%;
+  height: 400px;
+}
+
+.top-area {
+  background-color: $second-background-color;
+  width: 100%;
+  height: 80px;
+}
+
+.list-section {
+  @include flexCenter;
+
+  background-color: $main-background-color;
+  font-family: 'Open Sans', 'Lucida Grande', tahoma, verdana, arial, sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  width: 500px;
+
+  h2 {
+    @include styleFont(1em, 400);
+    @include setColors('', white);
+
+    width: 100%;
+    height: 3em;
+    text-align: left;
+    padding: 1em 1em;
+  }
+
+  .task-input {
+    @include styleFont(1em, 400, italic);
+
+    border: none;
+    width: 100%;
+    height: 3em;
+    margin: 1px 0;
+    padding: 1em 1em;
+  }
+
+  ul {
+    @include flexCenter;
+
+    gap: 1px;
+    list-style: none;
+    width: 100%;
+
+    .task-element {
+      @include flexCenter(row);
+      @include setColors('', white);
+
+      justify-content: space-between;
+      width: 100%;
+      height: 3em;
+    }
+
+    .checkbox-description-container {
+      @include flexCenter(row);
+
+      padding: 1em 1em;
+      gap: 1em;
+    }
+  }
+}
