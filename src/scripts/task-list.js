@@ -53,6 +53,11 @@ class TaskList {
 
     this.taskList.sort((byIndex));
   }
+
+  findElement = (searchThis) => {
+    const found = this.taskList.find((element) => element.reference === searchThis);
+    return found;
+  }
 }
 
 const taskList = new TaskList();
