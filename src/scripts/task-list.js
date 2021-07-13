@@ -4,11 +4,10 @@ class TaskList {
   /**
  * Adds to the task list.
  *
- * @param {Task} task an object type of task
+ * @param {li} task an object type of task
  */
   addToList = (task) => {
     this.taskList = this.taskList.concat(task);
-    this.showAllTasks();
   }
 
   /**
@@ -40,10 +39,19 @@ class TaskList {
     return foundTask;
   }
 
-  showAllTasks = () => {
-    this.taskList.forEach((element) => {
-      console.log(element);
-    });
+  sortList = (reverse = true) => {
+    let mod = 1;
+    if (reverse) {
+      mod *= -1;
+    }
+    const byIndex = (a, b) => {
+      if (a.index > b.index) {
+        return 1 * mod;
+      }
+      return -1 * mod;
+    };
+
+    this.taskList.sort((byIndex));
   }
 }
 

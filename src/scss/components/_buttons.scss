@@ -59,6 +59,7 @@
     background-color: grey;
     width: 5px;
     height: 5px;
+    border-radius: 7px;
     transition: all 1s ease;
 
     &::before {
@@ -67,6 +68,7 @@
       top: -8px;
       width: 5px;
       height: 5px;
+      border-radius: 7px;
       background-color: grey;
       transition: all 1s ease;
     }
@@ -77,6 +79,7 @@
       top: 8px;
       width: 5px;
       height: 5px;
+      border-radius: 7px;
       background-color: grey;
       transition: all 1s ease;
     }

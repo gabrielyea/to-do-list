@@ -1,7 +1,9 @@
 class Listeners {
-  onClickEvent = (eventSource, options) => {
+  onClickEvent = (eventSource, ...options) => {
     eventSource.addEventListener('click', () => {
-      options.callback(options.param);
+      options.forEach((option) => {
+        option.callback(option.param);
+      });
     });
   }
 
