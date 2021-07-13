@@ -1,9 +1,12 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Title
+# Todo list app
 
 # Project Description
+> Simple app that manages a list of activities.
 
+# Screenshots
+![screenshot](./todoScreen.png)
 
 ## Built With
 - html
