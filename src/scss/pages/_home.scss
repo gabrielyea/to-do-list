@@ -5,13 +5,18 @@ h1 {
   @include styleFont(2em, 400);
 
   font-family: $main-font;
-  color: #222;
+  color: $main-font-color;
   font-size: 3em;
 }
 
-.bottom-area,
+.bottom-area {
+  background-color: $second-background-color;
+  width: 100%;
+  height: 400px;
+}
+
 .top-area {
-  background-color: #2e8ae6;
+  background-color: $second-background-color;
   width: 100%;
   height: 80px;
 }
@@ -19,10 +24,9 @@ h1 {
 .list-section {
   @include flexCenter;
 
-  background-color: #f6f6f6;
+  background-color: $main-background-color;
   font-family: 'Open Sans', 'Lucida Grande', tahoma, verdana, arial, sans-serif;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  height: 500px;
   width: 500px;
 
   h2 {

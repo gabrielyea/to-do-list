@@ -82,3 +82,12 @@
     }
   }
 }
+
+.clear-btn {
+  @include setColors(grey);
+  @include styleFont(1em);
+
+  border: none;
+  width: 100%;
+  height: 3em;
+}
