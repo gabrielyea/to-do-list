@@ -15,7 +15,6 @@ export default class Task {
 
   toggleComplete = () => {
     this.completed = !this.completed;
-    console.log('togle');
   }
 
   /**
