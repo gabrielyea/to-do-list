@@ -21,6 +21,11 @@ export default class TaskUtils {
       { callback: () => localStorage.saveData({ data: taskList.getList }) },
       { callback: ux.clearInputField });
     this.setLoadedData();
+    ux.clearBtn.addEventListener('click', () => {
+      taskList.removeAllSelected();
+      localStorage.saveData({ data: taskList.getList });
+      this.sortTaskList();
+    });
   }
 
   /**
@@ -41,6 +46,7 @@ export default class TaskUtils {
     const pElement = () => clone.querySelector('.task-description');
 
     draggable.makeDraggable(task.reference,
+      { callback: () => ux.setDefaultStyle(taskList.getList) },
       { callback: this.sortTaskList },
       { callback: save });
 
@@ -52,9 +58,13 @@ export default class TaskUtils {
       { callback: () => task.updateDescription(pElement().innerText) },
       { callback: save });
 
-    listeners.onFocusEnterExit(pElement(),
-      { optionsEnter: [{ callback: () => ux.toggleHide(task.reference.getElementsByClassName('icon')) }] },
-      { optionsExit: [{ callback: () => ux.toggleHide(task.reference.getElementsByClassName('icon')) }] });
+    listeners.onClickEvent(pElement(),
+      { callback: () => task.doAction([ux.toggleEditStyle]) });
+
+    listeners.onClickEvent(task.reference.querySelector('.delete'),
+      { callback: () => taskList.removeFromList(task) },
+      { callback: this.sortTaskList },
+      { callback: save });
 
     return task;
   }
@@ -81,7 +91,7 @@ export default class TaskUtils {
   setLoadedData = () => {
     const dataList = localStorage.loadInputData();
 
-    if (!dataList) {
+    if (dataList.length < 1) {
       taskList.addToList(this.createTaskElement({ description: 'Clean the house' }));
       taskList.addToList(this.createTaskElement({ description: 'Walk the dog' }));
       taskList.addToList(this.createTaskElement({ description: 'Make lunch' }));

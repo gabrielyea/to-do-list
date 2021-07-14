@@ -1,7 +1,7 @@
 class UserInterface {
   clearBtn = document.querySelector('.clear-btn');
 
-  inputField = document.querySelector('.task-input')
+  inputField = document.querySelector('.task-input');
 
   clearInputField = () => {
     this.inputField.value = '';
@@ -12,9 +12,27 @@ class UserInterface {
     element.querySelector('.task-description').innerText = description;
   }
 
+  toggleEditStyle = (elements) => {
+    this.toggleHide(elements);
+    this.toggleEdit(elements);
+  }
+
   toggleHide = (elements) => {
-    Object.entries(elements).forEach((element) => {
+    const toggleThis = elements.getElementsByClassName('icon');
+    Object.entries(toggleThis).forEach((element) => {
       element[1].classList.toggle('hide');
+    });
+  }
+
+  toggleEdit = (elements) => {
+    elements.classList.toggle('edit');
+  }
+
+  setDefaultStyle = (list) => {
+    list.forEach((element) => {
+      element.reference.querySelector('.delete').classList.add('hide');
+      element.reference.querySelector('.three-dots-container').classList.remove('hide');
+      element.reference.classList.remove('edit');
     });
   }
 }

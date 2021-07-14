@@ -1,4 +1,4 @@
-@use '../utils/' as *;
+@use '../utils/'as *;
 
 .task-element {
   @include flexCenter(row);
@@ -20,5 +20,17 @@
 
   &.over {
     background-color: cornflowerblue;
+  }
+
+  &.edit {
+    background-color: rgba($color: #f7caa0, $alpha: 0.5);
+  }
+
+  .checkbox-description-container {
+    @include flexCenter(row);
+
+    justify-content: flex-start;
+    padding: 1em 1em;
+    gap: 1em;
   }
 }

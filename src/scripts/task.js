@@ -21,6 +21,19 @@ export default class Task {
     this.description = desc;
   }
 
+  /**
+   * Recives a function callback. Callback process task's reference data.
+   *
+   ** Used for interface functions.
+   ** Can be used for any class as long as it is expecting an HTMLElement.
+   * @param {function} callback function expecting a HTMLElement
+   */
+  doAction = (callbacks) => {
+    callbacks.forEach((callback) => {
+      callback(this.reference);
+    });
+  }
+
   set setDescription(desc) {
     this.description = desc;
   }

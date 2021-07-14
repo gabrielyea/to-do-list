@@ -55,12 +55,5 @@ h1 {
     gap: 1px;
     list-style: none;
     width: 100%;
-
-    .checkbox-description-container {
-      @include flexCenter(row);
-
-      padding: 1em 1em;
-      gap: 1em;
-    }
   }
 }

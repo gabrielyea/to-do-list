@@ -39,7 +39,7 @@ class Listeners {
   }
 
   onFocusEnterExit = (eventSource, { optionsEnter }, { optionsExit }) => {
-    eventSource.addEventListener('focusin', () => {
+    eventSource.addEventListener('click', () => {
       this.invokeAllCallbacks(...optionsEnter);
     });
     eventSource.addEventListener('focusout', () => {

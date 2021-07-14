@@ -19,6 +19,10 @@ class TaskList {
     this.taskList = this.taskList.filter((task) => task.index !== index);
   }
 
+  removeAllSelected = () => {
+    this.taskList = this.taskList.filter((task) => task.completed !== true);
+  }
+
   /**
  * Returns the taskList
  *
