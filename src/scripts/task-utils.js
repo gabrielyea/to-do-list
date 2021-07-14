@@ -27,6 +27,7 @@ export default class TaskUtils {
    * Creates a Task object
    *
    ** Function is called from Listeners -> onTaskSubmited.
+   ** Registers the task on: draggable, onCheckBoxChange, onTextChange.
    * @param {string} description Use for testing.
    * @returns {Task} a filled task.
    */
@@ -50,6 +51,10 @@ export default class TaskUtils {
     listeners.onTextChange(pElement(),
       { callback: () => task.updateDescription(pElement().innerText) },
       { callback: save });
+
+    listeners.onFocusEnterExit(pElement(),
+      { optionsEnter: [{ callback: () => ux.toggleHide(task.reference.getElementsByClassName('icon')) }] },
+      { optionsExit: [{ callback: () => ux.toggleHide(task.reference.getElementsByClassName('icon')) }] });
 
     return task;
   }

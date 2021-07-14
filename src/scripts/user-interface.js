@@ -11,6 +11,12 @@ class UserInterface {
     element.querySelector('.checkbox').checked = completed;
     element.querySelector('.task-description').innerText = description;
   }
+
+  toggleHide = (elements) => {
+    Object.entries(elements).forEach((element) => {
+      element[1].classList.toggle('hide');
+    });
+  }
 }
 
 const ux = new UserInterface();

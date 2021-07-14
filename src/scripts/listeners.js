@@ -38,6 +38,15 @@ class Listeners {
     });
   }
 
+  onFocusEnterExit = (eventSource, { optionsEnter }, { optionsExit }) => {
+    eventSource.addEventListener('focusin', () => {
+      this.invokeAllCallbacks(...optionsEnter);
+    });
+    eventSource.addEventListener('focusout', () => {
+      this.invokeAllCallbacks(...optionsExit);
+    });
+  }
+
   invokeAllCallbacks = (...options) => {
     options.forEach((option) => {
       option.callback(option.param);
