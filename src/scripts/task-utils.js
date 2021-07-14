@@ -33,9 +33,11 @@ export default class TaskUtils {
   createTaskElement = ({ description = this.input.value, completed }) => {
     const clone = this.taskTemplate.content.firstElementChild.cloneNode(true);
     ux.setValuesOfTaskElement(clone, { description, completed });
+
     const task = new Task(description, clone, completed);
 
     const save = () => { localStorage.saveData({ data: taskList.getList }); };
+    const pElement = () => clone.querySelector('.task-description');
 
     draggable.makeDraggable(task.reference,
       { callback: this.sortTaskList },
@@ -43,6 +45,10 @@ export default class TaskUtils {
 
     listeners.onCheckBoxChange(clone.querySelector('.checkbox'),
       { callback: task.toggleComplete },
+      { callback: save });
+
+    listeners.onTextChange(pElement(),
+      { callback: () => task.updateDescription(pElement().innerText) },
       { callback: save });
 
     return task;
