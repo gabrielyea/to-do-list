@@ -1,17 +1,13 @@
 class Listeners {
   onClickEvent = (eventSource, ...options) => {
     eventSource.addEventListener('click', () => {
-      options.forEach((option) => {
-        option.callback(option.param);
-      });
+      this.invokeAllCallbacks(...options);
     });
   }
 
   onSubmitEvent = (eventSource, ...options) => {
     eventSource.addEventListener('submit', (e) => {
-      options.forEach((option) => {
-        option.callback(option.param);
-      });
+      this.invokeAllCallbacks(...options);
       e.preventDefault();
     });
   }
@@ -25,10 +21,20 @@ class Listeners {
   onTaskSubmited = (eventSource, ...options) => {
     eventSource.addEventListener('keydown', (e) => {
       if (e.keyCode === 13) {
-        options.forEach((option) => {
-          option.callback(option.param);
-        });
+        this.invokeAllCallbacks(...options);
       }
+    });
+  }
+
+  onCheckBoxChange = (eventSource, ...options) => {
+    eventSource.addEventListener('change', () => {
+      this.invokeAllCallbacks(...options);
+    });
+  }
+
+  invokeAllCallbacks = (...options) => {
+    options.forEach((option) => {
+      option.callback(option.param);
     });
   }
 }

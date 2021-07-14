@@ -15,7 +15,7 @@ class TaskList {
  *
  * @param {number} index The index of the selected task
  */
-  removeFromList = (index) => {
+  removeFromList = ({ index }) => {
     this.taskList = this.taskList.filter((task) => task.index !== index);
   }
 
