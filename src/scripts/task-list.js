@@ -15,7 +15,7 @@ class TaskList {
  *
  * @param {number} index The index of the selected task
  */
-  removeFromList = (index) => {
+  removeFromList = ({ index }) => {
     this.taskList = this.taskList.filter((task) => task.index !== index);
   }
 
@@ -52,6 +52,11 @@ class TaskList {
     };
 
     this.taskList.sort((byIndex));
+  }
+
+  findElement = (searchThis) => {
+    const found = this.taskList.find((element) => element.reference === searchThis);
+    return found;
   }
 }
 

@@ -1,6 +1,9 @@
 import Task from './task.js';
 import listeners from './listeners.js';
 import taskList from './task-list.js';
+import draggable from './draggable.js';
+import localStorage from './localStorage.js';
+import ux from './user-interface.js';
 
 export default class TaskUtils {
   input = document.querySelector('.task-input');
@@ -14,18 +17,39 @@ export default class TaskUtils {
   init = () => {
     listeners.onTaskSubmited(this.input,
       { callback: () => taskList.addToList(this.createTaskElement({})) },
-      { callback: this.clearTaskList },
-      { callback: this.appendElementsToList });
+      { callback: this.appendElementsToList },
+      { callback: () => localStorage.saveData({ data: taskList.getList }) },
+      { callback: ux.clearInputField });
+    this.setLoadedData();
   }
 
-  createTaskElement = ({ description = this.input.value }) => {
+  /**
+   * Creates a Task object
+   *
+   ** Function is called from Listeners -> onTaskSubmited.
+   * @param {string} description Use for testing.
+   * @returns {Task} a filled task.
+   */
+  createTaskElement = ({ description = this.input.value, completed }) => {
     const clone = this.taskTemplate.content.firstElementChild.cloneNode(true);
-    clone.querySelector('.task-description').innerText = description;
-    const task = new Task(this.input.value, clone);
+    ux.setValuesOfTaskElement(clone, { description, completed });
+    const task = new Task(description, clone, completed);
+
+    const save = () => { localStorage.saveData({ data: taskList.getList }); };
+
+    draggable.makeDraggable(task.reference,
+      { callback: this.sortTaskList },
+      { callback: save });
+
+    listeners.onCheckBoxChange(clone.querySelector('.checkbox'),
+      { callback: task.toggleComplete },
+      { callback: save });
+
     return task;
   }
 
   appendElementsToList = () => {
+    this.clearTaskList();
     taskList.getList.forEach((task) => {
       this.templateTarget.appendChild(task.reference);
       task.indexNumber = (Array.from(this.currentTasks).indexOf(task.reference));
@@ -39,9 +63,22 @@ export default class TaskUtils {
   }
 
   sortTaskList = () => {
-    taskList.sortList(true);
+    taskList.sortList(false);
     this.appendElementsToList();
   }
 
-  getCurrentTask = () => new Task(this.input.value);
+  setLoadedData = () => {
+    const dataList = localStorage.loadInputData();
+
+    if (!dataList) {
+      taskList.addToList(this.createTaskElement({ description: 'Clean the house' }));
+      taskList.addToList(this.createTaskElement({ description: 'Walk the dog' }));
+      taskList.addToList(this.createTaskElement({ description: 'Make lunch' }));
+    } else {
+      dataList.forEach(({ description, completed, index }) => {
+        taskList.addToList(this.createTaskElement({ description, completed, index }));
+      });
+    }
+    this.appendElementsToList();
+  }
 }

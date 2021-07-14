@@ -1,13 +1,20 @@
+/**
+ * Creates a task instance.
+ *
+ * @constructor(description, reference)
+ * @param {string} description A text description od the task.
+ * @param {object} reference A dom object to reference directly.
+ */
 export default class Task {
-  constructor(description, reference = null) {
-    this.index = 0;
+  constructor(description, reference = null, completed = false, index = 0) {
+    this.index = index;
     this.description = description;
-    this.completed = false;
+    this.completed = completed;
     this.reference = reference;
   }
 
-  completeTask = () => {
-    this.completed = true;
+  toggleComplete = () => {
+    this.completed = !this.completed;
   }
 
   /**

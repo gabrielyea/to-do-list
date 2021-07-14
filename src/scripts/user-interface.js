@@ -1,12 +1,17 @@
-import listeners from './listeners.js';
-import TaskUtils from './task-utils.js';
-
-const task = new TaskUtils();
-
-export default class UserInterface {
+class UserInterface {
   clearBtn = document.querySelector('.clear-btn');
 
-  init = () => {
-    listeners.onClickEvent(this.clearBtn, { callback: task.sortTaskList });
+  inputField = document.querySelector('.task-input')
+
+  clearInputField = () => {
+    this.inputField.value = '';
+  }
+
+  setValuesOfTaskElement = (element, { description, completed }) => {
+    element.querySelector('.checkbox').checked = completed;
+    element.querySelector('.task-description').innerText = description;
   }
 }
+
+const ux = new UserInterface();
+export { ux as default };
