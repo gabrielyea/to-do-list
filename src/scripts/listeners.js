@@ -32,6 +32,12 @@ class Listeners {
     });
   }
 
+  onTextChange = (eventSource, ...options) => {
+    eventSource.addEventListener('input', () => {
+      this.invokeAllCallbacks(...options);
+    });
+  }
+
   invokeAllCallbacks = (...options) => {
     options.forEach((option) => {
       option.callback(option.param);
