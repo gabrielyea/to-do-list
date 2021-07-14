@@ -17,6 +17,14 @@ export default class Task {
     this.completed = !this.completed;
   }
 
+  updateDescription = (desc) => {
+    this.description = desc;
+  }
+
+  set setDescription(desc) {
+    this.description = desc;
+  }
+
   /**
    * @param {number} newIndex
    */
