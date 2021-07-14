@@ -3,14 +3,6 @@ class UserInterface {
 
   inputField = document.querySelector('.task-input')
 
-  // init = () => {
-  //   // listeners.onClickEvent(this.clearBtn,
-  //   //   { callback: task.sortTaskList });
-
-  //   listeners.onTaskSubmited(this.inputField,
-  //     { callback: this.clearInputField });
-  // }
-
   clearInputField = () => {
     this.inputField.value = '';
   }

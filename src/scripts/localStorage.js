@@ -5,6 +5,7 @@ class LocalStorage {
    * @param {Object} data An array or list of elements.
    */
   saveData = ({ data }) => {
+    console.table(data);
     window.localStorage.clear();
     window.localStorage.setItem('userData', JSON.stringify(data));
   };
@@ -17,6 +18,7 @@ class LocalStorage {
   loadInputData = () => {
     if (localStorage.getItem('userData') !== null) {
       const loadedData = JSON.parse(window.localStorage.getItem('userData'));
+      console.table(loadedData);
       return loadedData;
     }
     return null;

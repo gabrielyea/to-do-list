@@ -17,7 +17,6 @@ export default class TaskUtils {
   init = () => {
     listeners.onTaskSubmited(this.input,
       { callback: () => taskList.addToList(this.createTaskElement({})) },
-      { callback: this.clearTaskList },
       { callback: this.appendElementsToList },
       { callback: () => localStorage.saveData({ data: taskList.getList }) },
       { callback: ux.clearInputField });
@@ -34,17 +33,17 @@ export default class TaskUtils {
   createTaskElement = ({ description = this.input.value, completed }) => {
     const clone = this.taskTemplate.content.firstElementChild.cloneNode(true);
     ux.setValuesOfTaskElement(clone, { description, completed });
-    const task = new Task(description, clone);
+    const task = new Task(description, clone, completed);
 
-    const saveData = () => { localStorage.saveData({ data: taskList.getList }); };
+    const save = () => { localStorage.saveData({ data: taskList.getList }); };
 
     draggable.makeDraggable(task.reference,
       { callback: this.sortTaskList },
-      { callback: saveData });
+      { callback: save });
 
     listeners.onCheckBoxChange(clone.querySelector('.checkbox'),
       { callback: task.toggleComplete },
-      { callback: saveData });
+      { callback: save });
 
     return task;
   }
@@ -74,7 +73,7 @@ export default class TaskUtils {
     if (!dataList) {
       taskList.addToList(this.createTaskElement({ description: 'Clean the house' }));
       taskList.addToList(this.createTaskElement({ description: 'Walk the dog' }));
-      taskList.addToList(this.createTaskElement({ description: 'Make lunch' }));
+      // taskList.addToList(this.createTaskElement({ description: 'Make lunch' }));
     } else {
       dataList.forEach(({ description, completed, index }) => {
         taskList.addToList(this.createTaskElement({ description, completed, index }));

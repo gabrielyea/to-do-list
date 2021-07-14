@@ -6,15 +6,16 @@
  * @param {object} reference A dom object to reference directly.
  */
 export default class Task {
-  constructor(description, reference = null) {
-    this.index = 0;
+  constructor(description, reference = null, completed = false, index = 0) {
+    this.index = index;
     this.description = description;
-    this.completed = false;
+    this.completed = completed;
     this.reference = reference;
   }
 
   toggleComplete = () => {
     this.completed = !this.completed;
+    console.log('togle');
   }
 
   /**
