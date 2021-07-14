@@ -73,7 +73,7 @@ export default class TaskUtils {
     if (!dataList) {
       taskList.addToList(this.createTaskElement({ description: 'Clean the house' }));
       taskList.addToList(this.createTaskElement({ description: 'Walk the dog' }));
-      // taskList.addToList(this.createTaskElement({ description: 'Make lunch' }));
+      taskList.addToList(this.createTaskElement({ description: 'Make lunch' }));
     } else {
       dataList.forEach(({ description, completed, index }) => {
         taskList.addToList(this.createTaskElement({ description, completed, index }));

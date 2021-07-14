@@ -39,6 +39,7 @@ class Draggable {
   }
 
   onDragStart = (event) => {
+    event.target.classList.add('drag');
     event.dataTransfer.effectAllowed = 'move';
     this.startElement = taskList.findElement(event.target);
   }
@@ -48,25 +49,39 @@ class Draggable {
   }
 
   onDragOver = (event) => {
+    if (this.isValidDragElement(event.target)) {
+      event.target.classList.add('over');
+    }
     event.preventDefault();
     event.dataTransfer.dropEffect = 'move';
     return false;
   }
 
-  onDragLeave = () => {}
+  onDragLeave = (event) => {
+    if (this.isValidDragElement(event.target)) {
+      event.target.classList.remove('over');
+    }
+  }
 
   onDragDrop = (event) => {
-    this.endElement = taskList.findElement(event.target);
+    if (this.isValidDragElement(event.target)) {
+      this.endElement = taskList.findElement(event.target);
+      const temp = this.startElement.index;
+      this.startElement.indexNumber = this.endElement.index;
+      this.endElement.indexNumber = temp;
+    }
   }
 
   onDragEnd = () => {
-    if (this.endElement === null || this.endElement === undefined) {
-      return;
-    }
+    this.startElement.reference.classList.remove('over', 'drag');
+    this.endElement.reference.classList.remove('over', 'drag');
+  }
 
-    const temp = this.startElement.index;
-    this.startElement.indexNumber = this.endElement.index;
-    this.endElement.indexNumber = temp;
+  isValidDragElement = (element) => {
+    if (element.draggable) {
+      return true;
+    }
+    return false;
   }
 }
 
