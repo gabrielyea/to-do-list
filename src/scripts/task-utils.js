@@ -99,7 +99,7 @@ export default class TaskUtils {
   setLoadedData = () => {
     const dataList = localStorage.loadInputData();
 
-    if (dataList.length > 0) {
+    if (dataList !== null && dataList.length > 0) {
       dataList.forEach(({ description, completed, index }) => {
         taskList.addToList(this.createTaskElement({ description, completed, index }));
       });
