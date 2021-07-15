@@ -44,6 +44,11 @@
       align-items: flex-start;
       width: 100%;
       height: 100%;
+
+      &.checked {
+        text-decoration: line-through;
+        color: grey;
+      }
     }
   }
 }

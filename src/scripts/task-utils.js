@@ -57,6 +57,7 @@ export default class TaskUtils {
 
     listeners.onTextChange(pElement(),
       { callback: () => task.updateDescription(pElement().innerText) },
+      { callback: () => task.doAction(ux.setChekedStyle) },
       { callback: save });
 
     listeners.onClickEvent(pElement(),

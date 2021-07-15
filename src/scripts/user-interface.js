@@ -28,6 +28,10 @@ class UserInterface {
     elements.classList.toggle('edit');
   }
 
+  setChekedStyle = (element) => {
+    element.querySelector('.task-description').classList.toggle('checked');
+  }
+
   setDefaultStyle = (list) => {
     list.forEach((element) => {
       element.reference.querySelector('.delete').classList.add('hide');
