@@ -32,6 +32,21 @@ class Listeners {
     });
   }
 
+  onTextChange = (eventSource, ...options) => {
+    eventSource.addEventListener('input', () => {
+      this.invokeAllCallbacks(...options);
+    });
+  }
+
+  onFocusEnterExit = (eventSource, { optionsEnter }, { optionsExit }) => {
+    eventSource.addEventListener('click', () => {
+      this.invokeAllCallbacks(...optionsEnter);
+    });
+    eventSource.addEventListener('focusout', () => {
+      this.invokeAllCallbacks(...optionsExit);
+    });
+  }
+
   invokeAllCallbacks = (...options) => {
     options.forEach((option) => {
       option.callback(option.param);

@@ -52,14 +52,14 @@
 }
 
 .three-dots-container {
-  padding: 1em;
-
   .three-dots {
+    display: inline;
     position: absolute;
     background-color: grey;
     width: 5px;
     height: 5px;
     border-radius: 7px;
+    right: 10px;
     transition: all 1s ease;
 
     &::before {
