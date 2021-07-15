@@ -25,7 +25,10 @@ class Draggable {
   makeDraggable = (element, ...options) => {
     element.classList.add('draggable');
     element.draggable = 'true';
-    element.addEventListener('dragstart', this.onDragStart);
+    element.addEventListener('dragstart', (e) => {
+      this.onDragStart(e);
+      options[0].callback();
+    });
     element.addEventListener('dragenter', this.onDragEnter);
     element.addEventListener('dragover', this.onDragOver);
     element.addEventListener('dragleave', this.onDragLeave);

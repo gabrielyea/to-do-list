@@ -16,6 +16,7 @@ export default class TaskUtils {
 
   init = () => {
     listeners.onTaskSubmited(this.input,
+      { callback: () => ux.setDefaultStyle(taskList.getList) },
       { callback: () => taskList.addToList(this.createTaskElement({})) },
       { callback: this.appendElementsToList },
       { callback: () => localStorage.saveData({ data: taskList.getList }) },
@@ -59,6 +60,7 @@ export default class TaskUtils {
       { callback: save });
 
     listeners.onClickEvent(pElement(),
+      { callback: () => ux.setDefaultStyleOfAllButCurrent(taskList.getList, task.reference) },
       { callback: () => task.doAction([ux.toggleEditStyle]) });
 
     listeners.onClickEvent(task.reference.querySelector('.delete'),

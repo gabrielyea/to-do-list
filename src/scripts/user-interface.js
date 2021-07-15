@@ -35,6 +35,23 @@ class UserInterface {
       element.reference.classList.remove('edit');
     });
   }
+
+  /**
+   * Will set default style for all list elements but the current one.
+   *
+   ** Prevents overwrite of current task values.
+   * @param {Array} list list of task of elements to style.
+   * @param {*} current task to ignore.
+   */
+  setDefaultStyleOfAllButCurrent = (list, current) => {
+    list.forEach((element) => {
+      if (element.reference !== current) {
+        element.reference.querySelector('.delete').classList.add('hide');
+        element.reference.querySelector('.three-dots-container').classList.remove('hide');
+        element.reference.classList.remove('edit');
+      }
+    });
+  }
 }
 
 const ux = new UserInterface();
