@@ -52,12 +52,12 @@ export default class TaskUtils {
       { callback: save });
 
     listeners.onCheckBoxChange(clone.querySelector('.checkbox'),
+      { callback: () => task.doAction([ux.setChekedStyle]) },
       { callback: task.toggleComplete },
       { callback: save });
 
     listeners.onTextChange(pElement(),
       { callback: () => task.updateDescription(pElement().innerText) },
-      { callback: () => task.doAction(ux.setChekedStyle) },
       { callback: save });
 
     listeners.onClickEvent(pElement(),
@@ -72,6 +72,11 @@ export default class TaskUtils {
     return task;
   }
 
+  /**
+   * Appends all availible tasks on the template target.
+   *
+   ** Also assigns indexes based on current position.
+   */
   appendElementsToList = () => {
     this.clearTaskList();
     taskList.getList.forEach((task) => {
@@ -94,11 +99,7 @@ export default class TaskUtils {
   setLoadedData = () => {
     const dataList = localStorage.loadInputData();
 
-    if (dataList.length < 1) {
-      taskList.addToList(this.createTaskElement({ description: 'Clean the house' }));
-      taskList.addToList(this.createTaskElement({ description: 'Walk the dog' }));
-      taskList.addToList(this.createTaskElement({ description: 'Make lunch' }));
-    } else {
+    if (dataList.length > 0) {
       dataList.forEach(({ description, completed, index }) => {
         taskList.addToList(this.createTaskElement({ description, completed, index }));
       });
