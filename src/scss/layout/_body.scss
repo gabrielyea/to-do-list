@@ -6,8 +6,8 @@ body {
   justify-content: space-between;
   height: 100vh;
   background-color: #f6f6f6;
-}
 
-.hide {
-  display: none;
+  .hide {
+    display: none !important;
+  }
 }
