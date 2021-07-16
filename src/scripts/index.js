@@ -1,5 +1,5 @@
 import '../scss/main.scss';
-import TaskUtils from './task-utils.js';
+import TaskUtils from './components/task/task-utils.js';
 
 const task = new TaskUtils();
 

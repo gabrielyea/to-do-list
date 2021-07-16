@@ -1,9 +1,9 @@
 import Task from './task.js';
-import listeners from './listeners.js';
-import taskList from './task-list.js';
-import draggable from './draggable.js';
-import localStorage from './localStorage.js';
-import ux from './user-interface.js';
+import listeners from '../utils/listeners.js';
+import taskList from '../list/task-list.js';
+import localStorage from '../utils/localStorage.js';
+import ux from '../user-interface/user-interface.js';
+import taskAction from './task-actions.js';
 
 export default class TaskUtils {
   input = document.querySelector('.task-input');
@@ -14,17 +14,19 @@ export default class TaskUtils {
 
   currentTasks = this.templateTarget.getElementsByTagName('li');
 
+  save = () => { localStorage.saveData({ data: taskList.getList }); };
+
   init = () => {
     listeners.onTaskSubmited(this.input,
       { callback: () => ux.setDefaultStyle(taskList.getList) },
       { callback: () => taskList.addToList(this.createTaskElement({})) },
       { callback: this.appendElementsToList },
-      { callback: () => localStorage.saveData({ data: taskList.getList }) },
+      { callback: () => this.save() },
       { callback: ux.clearInputField });
     this.setLoadedData();
     ux.clearBtn.addEventListener('click', () => {
       taskList.removeAllSelected();
-      localStorage.saveData({ data: taskList.getList });
+      this.save();
       this.sortTaskList();
     });
   }
@@ -42,32 +44,7 @@ export default class TaskUtils {
     ux.setValuesOfTaskElement(clone, { description, completed });
 
     const task = new Task(description, clone, completed);
-
-    const save = () => { localStorage.saveData({ data: taskList.getList }); };
-    const pElement = () => clone.querySelector('.task-description');
-
-    draggable.makeDraggable(task.reference,
-      { callback: () => ux.setDefaultStyle(taskList.getList) },
-      { callback: this.sortTaskList },
-      { callback: save });
-
-    listeners.onCheckBoxChange(clone.querySelector('.checkbox'),
-      { callback: () => task.doAction([ux.setChekedStyle]) },
-      { callback: task.toggleComplete },
-      { callback: save });
-
-    listeners.onTextChange(pElement(),
-      { callback: () => task.updateDescription(pElement().innerText) },
-      { callback: save });
-
-    listeners.onClickEvent(pElement(),
-      { callback: () => ux.setDefaultStyleOfAllButCurrent(taskList.getList, task.reference) },
-      { callback: () => task.doAction([ux.toggleEditStyle]) });
-
-    listeners.onClickEvent(task.reference.querySelector('.delete'),
-      { callback: () => taskList.removeFromList(task) },
-      { callback: this.sortTaskList },
-      { callback: save });
+    taskAction.setActions(task, { sortCallback: this.sortTaskList, saveCallback: this.save });
 
     return task;
   }

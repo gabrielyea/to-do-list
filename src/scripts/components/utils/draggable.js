@@ -1,4 +1,4 @@
-import taskList from './task-list.js';
+import taskList from '../list/task-list.js';
 
 /**
  * Contains functionality to make draggable items.
