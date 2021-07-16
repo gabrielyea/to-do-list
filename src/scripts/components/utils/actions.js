@@ -7,6 +7,7 @@
  *
  * TODO: Still dont know how to force an 'interface' or pattern in js.
  * but the subject should have a method called notify or invoke for each action.
+ * That method can be added via prototype to avoid polluting the class.
  */
 export default class Actions {
   actions = [];
