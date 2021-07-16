@@ -1,8 +1,18 @@
+/**
+ * Super lightweight observer/action pattern.
+ *
+ ** The class that extends / creates an instance of action will be the subject.
+ ** The functions registered on the actions list will be the observers.
+ ** Anonymous functions cannot be removed, use remove all!
+ *
+ * TODO: Still dont know how to force an 'interface' or pattern in js.
+ * but the subject should have a method called notify or invoke for each action.
+ */
 export default class Actions {
   actions = [];
 
-  addAction = (...fun) => {
-    fun.forEach((action) => {
+  addActions = (...callbacks) => {
+    callbacks.forEach((action) => {
       this.actions.push(action);
     });
   }
@@ -19,7 +29,9 @@ export default class Actions {
     this.actions = this.actions.filter((fun) => search !== fun);
   }
 
-  doActions = () => {
-    this.actions.forEach((fun) => fun());
+  doActions = ({ param }) => {
+    this.actions.forEach((callback) => {
+      callback(param);
+    });
   }
 }

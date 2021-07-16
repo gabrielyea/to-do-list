@@ -1,3 +1,5 @@
+import Actions from '../utils/actions.js';
+
 /**
  * Creates a task instance.
  *
@@ -13,6 +15,8 @@ export default class Task {
     this.reference = reference;
   }
 
+  onUpdateData = new Actions();
+
   toggleComplete = () => {
     this.completed = !this.completed;
   }
@@ -22,18 +26,8 @@ export default class Task {
   }
 
   /**
-   * Recives a function callback. Callback process task's reference data.
-   *
-   ** Used for interface functions.
-   ** Can be used for any class as long as it is expecting an HTMLElement.
-   * @param {function} callback function expecting a HTMLElement
+   * @param {String} desc
    */
-  doAction = (callbacks) => {
-    callbacks.forEach((callback) => {
-      callback(this.reference);
-    });
-  }
-
   set setDescription(desc) {
     this.description = desc;
   }

@@ -1,17 +1,4 @@
 class Listeners {
-  onClickEvent = (eventSource, ...options) => {
-    eventSource.addEventListener('click', () => {
-      this.invokeAllCallbacks(...options);
-    });
-  }
-
-  onSubmitEvent = (eventSource, ...options) => {
-    eventSource.addEventListener('submit', (e) => {
-      this.invokeAllCallbacks(...options);
-      e.preventDefault();
-    });
-  }
-
   /**
    * Registers an event on enter key press.
    *
@@ -23,27 +10,6 @@ class Listeners {
       if (e.keyCode === 13) {
         this.invokeAllCallbacks(...options);
       }
-    });
-  }
-
-  onCheckBoxChange = (eventSource, ...options) => {
-    eventSource.addEventListener('change', () => {
-      this.invokeAllCallbacks(...options);
-    });
-  }
-
-  onTextChange = (eventSource, ...options) => {
-    eventSource.addEventListener('input', () => {
-      this.invokeAllCallbacks(...options);
-    });
-  }
-
-  onFocusEnterExit = (eventSource, { optionsEnter }, { optionsExit }) => {
-    eventSource.addEventListener('click', () => {
-      this.invokeAllCallbacks(...optionsEnter);
-    });
-    eventSource.addEventListener('focusout', () => {
-      this.invokeAllCallbacks(...optionsExit);
     });
   }
 

@@ -1,7 +1,7 @@
 import taskList from '../list/task-list.js';
 import draggable from '../utils/draggable.js';
-import listeners from '../utils/listeners.js';
 import ux from '../user-interface/user-interface.js';
+import CustomListener from '../utils/customListener.js';
 
 /**
  * Utility class, sets all events and callbacks on a task element.
@@ -18,28 +18,31 @@ class TaskAction {
   setActions = (task, { sortCallback, saveCallback }) => {
     const pElement = () => task.reference.querySelector('.task-description');
 
+    // Create all listeners for events
+    const onCheckBox = new CustomListener('change', task.reference.querySelector('.checkbox'));
+    const onDelete = new CustomListener('click', task.reference.querySelector('.delete'));
+    const onEdit = new CustomListener('click', pElement());
+
+    // Add callbacks to onUpdateAction
+    task.onUpdateData.addActions(sortCallback, saveCallback);
+    // Create a new method to invoke actions.
+    Object.getPrototypeOf(task).invokeActions = () => {
+      task.onUpdateData.doActions({});
+    };
+
     draggable.makeDraggable(task.reference,
       { callback: () => ux.setDefaultStyle(taskList.getList) },
-      { callback: sortCallback },
-      { callback: saveCallback });
+      { callback: task.invokeActions });
 
-    listeners.onCheckBoxChange(task.reference.querySelector('.checkbox'),
-      { callback: () => task.doAction([ux.setChekedStyle]) },
-      { callback: task.toggleComplete },
-      { callback: saveCallback });
+    onCheckBox.addActions(() => ux.setChekedStyle(task.reference),
+      task.toggleComplete, saveCallback);
 
-    listeners.onTextChange(pElement(),
-      { callback: () => task.updateDescription(pElement().innerText) },
-      { callback: saveCallback });
+    onEdit.addActions(() => task.updateDescription(pElement().innerText),
+      () => ux.setDefaultStyleOfAllButCurrent(taskList.getList, task.reference),
+      () => ux.toggleEditStyle(task.reference),
+      saveCallback);
 
-    listeners.onClickEvent(pElement(),
-      { callback: () => ux.setDefaultStyleOfAllButCurrent(taskList.getList, task.reference) },
-      { callback: () => task.doAction([ux.toggleEditStyle]) });
-
-    listeners.onClickEvent(task.reference.querySelector('.delete'),
-      { callback: () => taskList.removeFromList(task) },
-      { callback: sortCallback },
-      { callback: saveCallback });
+    onDelete.addActions(() => taskList.removeFromList(task), task.invokeActions);
   }
 }
 
