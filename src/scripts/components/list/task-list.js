@@ -23,21 +23,11 @@ class TaskList {
     this.taskList = this.taskList.filter((task) => task.completed !== true);
   }
 
-  /**
- * Returns the taskList
- *
- * @return {Array} taskList.
- */
-  get getList() {
-    return this.taskList;
+  removeAllSelectedFromList = (list) => {
+    list = list.filter((task) => task.completed !== true);
+    return list;
   }
 
-  /**
- * Returns Task by index
- *
- * @param {number} index The index of the selected Task
- * @return {Task} foundTask.
- */
   getByindex = (index) => {
     const foundTask = this.taskList.find((task) => task.index === index);
     return foundTask;
@@ -68,6 +58,10 @@ class TaskList {
   findElement = (searchThis) => {
     const found = this.taskList.find((element) => element.reference === searchThis);
     return found;
+  }
+
+  get getList() {
+    return this.taskList;
   }
 }
 

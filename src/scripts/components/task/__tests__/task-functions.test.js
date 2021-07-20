@@ -32,3 +32,30 @@ describe('Add and remove functions', () => {
     expect(taskList.getList.length).toBe(0);
   });
 });
+
+describe('Test task internal functions', () => {
+  test('Update task description', () => {
+    const task = new Task('task 1', 'reference', false, 0);
+
+    task.updateDescription('test description');
+
+    const { description } = task.info;
+    expect(description).toEqual('test description');
+  });
+
+  test('Toggle completed', () => {
+    const task = new Task('task 1', 'reference', false, 0);
+
+    task.toggleComplete();
+
+    expect(task.completed).toEqual(true);
+  });
+
+  test('Update index', () => {
+    const task = new Task('task 1', 'reference', false, 0);
+
+    task.updateIndex(1);
+
+    expect(task.index).toBe(1);
+  });
+});
