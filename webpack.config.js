@@ -1,12 +1,25 @@
 /* eslint-disable global-require */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          format: {
+            comments: false,
+          },
+        },
+        extractComments: false,
+      }),
+    ],
+  },
   mode: 'development',
   entry: {
     index: './src/scripts/index.js',
-    // print: './src/print.js',
   },
   devtool: 'eval-source-map',
   devServer: {
