@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1626800729210" clover="3.2.0">
-  <project timestamp="1626800729210" name="All files">
+<coverage generated="1626801514669" clover="3.2.0">
+  <project timestamp="1626801514669" name="All files">
     <metrics statements="210" coveredstatements="68" conditionals="33" coveredconditionals="0" methods="82" coveredmethods="9" elements="325" coveredelements="77" complexity="0" loc="210" ncloc="210" packages="4" files="10" classes="10"/>
     <package name="list">
       <metrics statements="24" coveredstatements="11" conditionals="5" coveredconditionals="0" methods="12" coveredmethods="4"/>
-      <file name="task-list.js" path="/home/gabriel/Module 2 - Microverse/to-do-list/src/scripts/components/list/task-list.js">
+      <file name="task-list.js" path="/Users/diegoivansoliscuevas/Documents/Microverse 2.0/Javascript/Untitled/src/scripts/components/list/task-list.js">
         <metrics statements="24" coveredstatements="11" conditionals="5" coveredconditionals="0" methods="12" coveredmethods="4"/>
         <line num="2" count="2" type="stmt"/>
         <line num="9" count="2" type="stmt"/>
@@ -34,7 +34,7 @@
     </package>
     <package name="task">
       <metrics statements="74" coveredstatements="26" conditionals="8" coveredconditionals="0" methods="32" coveredmethods="5"/>
-      <file name="task-actions.js" path="/home/gabriel/Module 2 - Microverse/to-do-list/src/scripts/components/task/task-actions.js">
+      <file name="task-actions.js" path="/Users/diegoivansoliscuevas/Documents/Microverse 2.0/Javascript/Untitled/src/scripts/components/task/task-actions.js">
         <metrics statements="16" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="0"/>
         <line num="18" count="1" type="stmt"/>
         <line num="19" count="0" type="stmt"/>
@@ -53,7 +53,7 @@
         <line num="45" count="0" type="stmt"/>
         <line num="49" count="1" type="stmt"/>
       </file>
-      <file name="task-utils.js" path="/home/gabriel/Module 2 - Microverse/to-do-list/src/scripts/components/task/task-utils.js">
+      <file name="task-utils.js" path="/Users/diegoivansoliscuevas/Documents/Microverse 2.0/Javascript/Untitled/src/scripts/components/task/task-utils.js">
         <metrics statements="46" coveredstatements="15" conditionals="5" coveredconditionals="0" methods="17" coveredmethods="2"/>
         <line num="8" count="1" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
@@ -102,7 +102,7 @@
         <line num="108" count="1" type="stmt"/>
         <line num="109" count="1" type="stmt"/>
       </file>
-      <file name="task.js" path="/home/gabriel/Module 2 - Microverse/to-do-list/src/scripts/components/task/task.js">
+      <file name="task.js" path="/Users/diegoivansoliscuevas/Documents/Microverse 2.0/Javascript/Untitled/src/scripts/components/task/task.js">
         <metrics statements="12" coveredstatements="9" conditionals="3" coveredconditionals="0" methods="6" coveredmethods="3"/>
         <line num="12" count="5" type="stmt"/>
         <line num="13" count="5" type="stmt"/>
@@ -120,7 +120,7 @@
     </package>
     <package name="user-interface">
       <metrics statements="30" coveredstatements="11" conditionals="2" coveredconditionals="0" methods="11" coveredmethods="0"/>
-      <file name="user-interface.js" path="/home/gabriel/Module 2 - Microverse/to-do-list/src/scripts/components/user-interface/user-interface.js">
+      <file name="user-interface.js" path="/Users/diegoivansoliscuevas/Documents/Microverse 2.0/Javascript/Untitled/src/scripts/components/user-interface/user-interface.js">
         <metrics statements="30" coveredstatements="11" conditionals="2" coveredconditionals="0" methods="11" coveredmethods="0"/>
         <line num="2" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
@@ -156,7 +156,7 @@
     </package>
     <package name="utils">
       <metrics statements="82" coveredstatements="20" conditionals="18" coveredconditionals="0" methods="27" coveredmethods="0"/>
-      <file name="actions.js" path="/home/gabriel/Module 2 - Microverse/to-do-list/src/scripts/components/utils/actions.js">
+      <file name="actions.js" path="/Users/diegoivansoliscuevas/Documents/Microverse 2.0/Javascript/Untitled/src/scripts/components/utils/actions.js">
         <metrics statements="14" coveredstatements="5" conditionals="2" coveredconditionals="0" methods="8" coveredmethods="0"/>
         <line num="13" count="5" type="stmt"/>
         <line num="15" count="5" type="stmt"/>
@@ -173,7 +173,7 @@
         <line num="34" count="0" type="stmt"/>
         <line num="35" count="0" type="stmt"/>
       </file>
-      <file name="customListener.js" path="/home/gabriel/Module 2 - Microverse/to-do-list/src/scripts/components/utils/customListener.js">
+      <file name="customListener.js" path="/Users/diegoivansoliscuevas/Documents/Microverse 2.0/Javascript/Untitled/src/scripts/components/utils/customListener.js">
         <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <line num="12" count="0" type="stmt"/>
         <line num="13" count="0" type="stmt"/>
@@ -181,7 +181,7 @@
         <line num="16" count="0" type="stmt"/>
         <line num="17" count="0" type="stmt"/>
       </file>
-      <file name="draggable.js" path="/home/gabriel/Module 2 - Microverse/to-do-list/src/scripts/components/utils/draggable.js">
+      <file name="draggable.js" path="/Users/diegoivansoliscuevas/Documents/Microverse 2.0/Javascript/Untitled/src/scripts/components/utils/draggable.js">
         <metrics statements="47" coveredstatements="10" conditionals="12" coveredconditionals="0" methods="11" coveredmethods="0"/>
         <line num="11" count="1" type="stmt"/>
         <line num="27" count="1" type="stmt"/>
@@ -231,7 +231,7 @@
         <line num="94" count="0" type="stmt"/>
         <line num="98" count="1" type="stmt"/>
       </file>
-      <file name="listeners.js" path="/home/gabriel/Module 2 - Microverse/to-do-list/src/scripts/components/utils/listeners.js">
+      <file name="listeners.js" path="/Users/diegoivansoliscuevas/Documents/Microverse 2.0/Javascript/Untitled/src/scripts/components/utils/listeners.js">
         <metrics statements="8" coveredstatements="3" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="0"/>
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="0" type="stmt"/>
@@ -242,7 +242,7 @@
         <line num="18" count="0" type="stmt"/>
         <line num="23" count="1" type="stmt"/>
       </file>
-      <file name="localStorage.js" path="/home/gabriel/Module 2 - Microverse/to-do-list/src/scripts/components/utils/localStorage.js">
+      <file name="localStorage.js" path="/Users/diegoivansoliscuevas/Documents/Microverse 2.0/Javascript/Untitled/src/scripts/components/utils/localStorage.js">
         <metrics statements="8" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <line num="7" count="1" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
