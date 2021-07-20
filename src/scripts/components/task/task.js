@@ -38,4 +38,13 @@ export default class Task {
   set indexNumber(newIndex) {
     this.index = newIndex;
   }
+
+  get info() {
+    return {
+      description: this.description,
+      reference: this.reference,
+      completed: this.completed,
+      index: this.index,
+    };
+  }
 }

@@ -1,4 +1,4 @@
-class LocalStorage {
+export default class LocalStorage {
   /**
    * Saves a data list.
    ** Preferably shold be used as a callback or observer.
@@ -22,6 +22,3 @@ class LocalStorage {
     return null;
   };
 }
-
-const storage = new LocalStorage();
-export { storage as default };

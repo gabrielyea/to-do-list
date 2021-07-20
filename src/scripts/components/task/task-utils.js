@@ -1,28 +1,41 @@
 import Task from './task.js';
 import listeners from '../utils/listeners.js';
 import taskList from '../list/task-list.js';
-import localStorage from '../utils/localStorage.js';
+import LocalStorage from '../utils/localStorage.js';
 import ux from '../user-interface/user-interface.js';
 import taskAction from './task-actions.js';
 
+const storage = new LocalStorage();
+
 export default class TaskUtils {
-  input = document.querySelector('.task-input');
+  input;
 
-  taskTemplate = document.querySelector('.task-template');
+  taskTemplate;
 
-  templateTarget = document.querySelector('.task-list');
+  templateTarget;
 
-  currentTasks = this.templateTarget.getElementsByTagName('li');
+  currentTasks;
 
-  save = () => { localStorage.saveData({ data: taskList.getList }); };
+  save = () => { storage.saveData({ data: taskList.getList }); };
+
+  load = () => { storage.loadInputData(); };
 
   init = () => {
+    this.input = document.querySelector('.task-input');
+
+    this.taskTemplate = document.querySelector('.task-template');
+
+    this.templateTarget = document.querySelector('.task-list');
+
+    this.currentTasks = this.templateTarget.getElementsByTagName('li');
+
     listeners.onTaskSubmited(this.input,
       { callback: () => ux.setDefaultStyle(taskList.getList) },
       { callback: () => taskList.addToList(this.createTaskElement({})) },
       { callback: this.appendElementsToList },
       { callback: () => this.save() },
       { callback: ux.clearInputField });
+
     this.setLoadedData();
     ux.clearBtn.addEventListener('click', () => {
       taskList.removeAllSelected();
@@ -57,8 +70,7 @@ export default class TaskUtils {
   appendElementsToList = () => {
     this.clearTaskList();
     taskList.getList.forEach((task) => {
-      this.templateTarget.appendChild(task.reference);
-      task.indexNumber = (Array.from(this.currentTasks).indexOf(task.reference));
+      this.addTaskToDomList(task, this.templateTarget);
     });
   }
 
@@ -74,7 +86,7 @@ export default class TaskUtils {
   }
 
   setLoadedData = () => {
-    const dataList = localStorage.loadInputData();
+    const dataList = storage.loadInputData();
 
     if (dataList !== null && dataList.length > 0) {
       dataList.forEach(({ description, completed, index }) => {
@@ -82,5 +94,18 @@ export default class TaskUtils {
       });
     }
     this.appendElementsToList();
+  }
+
+  addItem = ({ task }) => {
+    taskList.addToList((task));
+  }
+
+  addTaskToDomList = (task, target) => {
+    target.appendChild(task.reference);
+    task.indexNumber = (Array.from(target.getElementsByTagName('li')).indexOf(task.reference));
+  }
+
+  removeFromTaskList = (task, target) => {
+    target.removeChild(task.reference);
   }
 }
