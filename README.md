@@ -46,6 +46,10 @@ To run the test just use the following command!
 
 - GitHub: [@gabrielyea](https://github.com/gabrielyea)
 
+👤 *Diego Solis*
+
+- GitHub: [@disc3110](https://github.com/disc3110)
+
 
 ## 🤝 Contributing
 

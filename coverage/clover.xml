@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1626821823288" clover="3.2.0">
-  <project timestamp="1626821823288" name="All files">
-    <metrics statements="213" coveredstatements="74" conditionals="33" coveredconditionals="0" methods="83" coveredmethods="13" elements="329" coveredelements="87" complexity="0" loc="213" ncloc="213" packages="4" files="10" classes="10"/>
+<coverage generated="1626879986330" clover="3.2.0">
+  <project timestamp="1626879986331" name="All files">
+    <metrics statements="213" coveredstatements="75" conditionals="33" coveredconditionals="0" methods="83" coveredmethods="15" elements="329" coveredelements="90" complexity="0" loc="213" ncloc="213" packages="4" files="10" classes="10"/>
     <package name="list">
-      <metrics statements="27" coveredstatements="14" conditionals="5" coveredconditionals="0" methods="14" coveredmethods="6"/>
+      <metrics statements="27" coveredstatements="15" conditionals="5" coveredconditionals="0" methods="14" coveredmethods="8"/>
       <file name="task-list.js" path="/home/gabriel/Module 2 - Microverse/to-do-list/src/scripts/components/list/task-list.js">
-        <metrics statements="27" coveredstatements="14" conditionals="5" coveredconditionals="0" methods="14" coveredmethods="6"/>
+        <metrics statements="27" coveredstatements="15" conditionals="5" coveredconditionals="0" methods="14" coveredmethods="8"/>
         <line num="2" count="3" type="stmt"/>
         <line num="9" count="3" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
+        <line num="10" count="5" type="stmt"/>
         <line num="18" count="3" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
         <line num="22" count="3" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
+        <line num="23" count="4" type="stmt"/>
         <line num="26" count="3" type="stmt"/>
         <line num="27" count="3" type="stmt"/>
         <line num="28" count="1" type="stmt"/>
@@ -31,7 +31,7 @@
         <line num="58" count="3" type="stmt"/>
         <line num="59" count="0" type="stmt"/>
         <line num="60" count="0" type="stmt"/>
-        <line num="64" count="2" type="stmt"/>
+        <line num="64" count="3" type="stmt"/>
         <line num="68" count="3" type="stmt"/>
       </file>
     </package>
@@ -107,16 +107,16 @@
       </file>
       <file name="task.js" path="/home/gabriel/Module 2 - Microverse/to-do-list/src/scripts/components/task/task.js">
         <metrics statements="12" coveredstatements="12" conditionals="3" coveredconditionals="0" methods="5" coveredmethods="5"/>
-        <line num="12" count="11" type="stmt"/>
-        <line num="13" count="11" type="stmt"/>
-        <line num="14" count="11" type="stmt"/>
-        <line num="15" count="11" type="stmt"/>
-        <line num="18" count="11" type="stmt"/>
-        <line num="20" count="11" type="stmt"/>
+        <line num="12" count="17" type="stmt"/>
+        <line num="13" count="17" type="stmt"/>
+        <line num="14" count="17" type="stmt"/>
+        <line num="15" count="17" type="stmt"/>
+        <line num="18" count="17" type="stmt"/>
+        <line num="20" count="17" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
-        <line num="24" count="11" type="stmt"/>
+        <line num="24" count="17" type="stmt"/>
         <line num="25" count="1" type="stmt"/>
-        <line num="28" count="11" type="stmt"/>
+        <line num="28" count="17" type="stmt"/>
         <line num="29" count="3" type="stmt"/>
         <line num="33" count="2" type="stmt"/>
       </file>
@@ -161,18 +161,18 @@
       <metrics statements="82" coveredstatements="20" conditionals="18" coveredconditionals="0" methods="27" coveredmethods="0"/>
       <file name="actions.js" path="/home/gabriel/Module 2 - Microverse/to-do-list/src/scripts/components/utils/actions.js">
         <metrics statements="14" coveredstatements="5" conditionals="2" coveredconditionals="0" methods="8" coveredmethods="0"/>
-        <line num="13" count="11" type="stmt"/>
-        <line num="15" count="11" type="stmt"/>
+        <line num="13" count="17" type="stmt"/>
+        <line num="15" count="17" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
         <line num="17" count="0" type="stmt"/>
-        <line num="21" count="11" type="stmt"/>
+        <line num="21" count="17" type="stmt"/>
         <line num="22" count="0" type="stmt"/>
         <line num="23" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="24" count="0" type="stmt"/>
         <line num="26" count="0" type="stmt"/>
-        <line num="29" count="11" type="stmt"/>
+        <line num="29" count="17" type="stmt"/>
         <line num="30" count="0" type="stmt"/>
-        <line num="33" count="11" type="stmt"/>
+        <line num="33" count="17" type="stmt"/>
         <line num="34" count="0" type="stmt"/>
         <line num="35" count="0" type="stmt"/>
       </file>
