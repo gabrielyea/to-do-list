@@ -102,7 +102,7 @@ export default class TaskUtils {
 
   addTaskToDomList = (task, target) => {
     target.appendChild(task.reference);
-    task.indexNumber = (Array.from(target.getElementsByTagName('li')).indexOf(task.reference));
+    task.updateIndex(Array.from(target.getElementsByTagName('li')).indexOf(task.reference));
   }
 
   removeFromTaskList = (task, target) => {

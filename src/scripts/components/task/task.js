@@ -25,17 +25,7 @@ export default class Task {
     this.description = desc;
   }
 
-  /**
-   * @param {String} desc
-   */
-  set setDescription(desc) {
-    this.description = desc;
-  }
-
-  /**
-   * @param {number} newIndex
-   */
-  set indexNumber(newIndex) {
+  updateIndex = (newIndex) => {
     this.index = newIndex;
   }
 
