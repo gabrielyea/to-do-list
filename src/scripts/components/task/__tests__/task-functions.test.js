@@ -33,7 +33,7 @@ describe('Add and remove functions', () => {
   });
 });
 
-describe('Test task internal functions', () => {
+describe('Callback function on edit actions', () => {
   test('Update task description', () => {
     const task = new Task('task 1', 'reference', false, 0);
 
@@ -43,7 +43,7 @@ describe('Test task internal functions', () => {
     expect(description).toEqual('test description');
   });
 
-  test('Toggle completed', () => {
+  test('Callback function on checkbox actions', () => {
     const task = new Task('task 1', 'reference', false, 0);
 
     task.toggleComplete();
@@ -51,7 +51,7 @@ describe('Test task internal functions', () => {
     expect(task.completed).toEqual(true);
   });
 
-  test('Update index', () => {
+  test('Callback function on drop actions', () => {
     const task = new Task('task 1', 'reference', false, 0);
 
     task.updateIndex(1);

@@ -16,6 +16,7 @@ describe('Local storage mock operations', () => {
       },
     }));
   });
+
   it('loadInputData length should be greater than 1', () => {
     const localStorage = new LocalStorage();
     localStorage.saveData('object 1');
