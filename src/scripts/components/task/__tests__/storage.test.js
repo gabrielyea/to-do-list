@@ -37,4 +37,16 @@ describe('Local storage mock operations', () => {
     list = taskList.removeAllSelectedFromList(list);
     expect(list.length).toBe(1);
   });
+
+  it('Should save 2 objects', () => {
+    const localStorage = new LocalStorage();
+    const task1 = new Task('desc 1', 'ref 1', true, 0);
+    const task2 = new Task('desc 2', 'ref 2', false, 0);
+    localStorage.saveData(task1);
+    localStorage.saveData(task2);
+
+    let list = localStorage.loadInputData();
+
+    expect(list.length).toBe(2);
+  });
 });
