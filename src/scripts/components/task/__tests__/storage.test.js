@@ -46,7 +46,7 @@ describe('Local storage mock operations', () => {
     localStorage.saveData(task1);
     localStorage.saveData(task2);
 
-    let list = localStorage.loadInputData();
+    const list = localStorage.loadInputData();
 
     expect(list.length).toBe(2);
   });
